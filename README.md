@@ -7,3 +7,4 @@ Manage Student Record Efficiently With The Lightweight Tools. All Student Data i
 
 ## Features
 -** Auto-Grading** - Automatic Grading Calculation (A-F) Based on Average.
+-** Auto-Save** - Data persists Between sessions.
