@@ -59,6 +59,19 @@ void load_Students()
     file.close();
 }
 
+void save_Students()
+{
+    ofstream file("students.txt");
+    for (const auto& s : students)
+    {
+        file << s.id << endl;
+        file << s.name <<endl;
+        file << s.age << endl;
+        file << s.marks[0] << " " << s.marks[1] << " " << s.marks[2] << endl;
+    }
+    file.close();
+}
+
 int main()
 {
     cout<<"Student management system";
