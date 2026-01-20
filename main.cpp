@@ -72,6 +72,36 @@ void save_Students()
     file.close();
 }
 
+void add_Student()
+{
+    Student s;
+    s.id = nextId++;
+
+    cout<<"\n==== Add New Student ===="<<endl;
+    cout<<"Student Id : "<<s.id<<"(Auto-generated)"<<endl;
+
+    cout<<"Enter name : ";
+    cin.ignore();
+    getline(cin, s.name);
+
+    cout<<"Enter Age : ";
+    cin>>s.age;
+
+    cout<<"Enter Marks for Subject 1 :";
+    cin>>s.marks[0];
+    cout<<"Enter Marks for Subject 2 :";
+    cin>>s.marks[1];
+    cout<<"Enter Marks for Subject 3 :";
+    cin>>s.marks[2];
+
+    student.push_back(s);
+    save_Students();
+
+    cout<<"\nStudent Added Successfully !"<<endl;
+    cout<<"Average Marks : " << fixed << setprecision(2) << s.getAverage() << endl;
+    cout<<"Grade : " << s.getGrade() << endl;
+}
+
 int main()
 {
     cout<<"Student management system";
