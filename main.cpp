@@ -102,6 +102,34 @@ void add_Student()
     cout<<"Grade : " << s.getGrade() << endl;
 }
 
+void displayAllStudents()
+{
+    if(students.empty())
+    {
+        cout<<"\nNo Students in the System Yet."<<endl;
+        return;
+    }
+    cout<<"\n ======================================================================= All Students ======================================================================="<<endl;
+    cout<<"Id\tName\t\tAge\tSub 1\tSub 2\tSub 3\tAverage\tGrade"<<endl;
+    cout<<"\n ============================================================================================================================================================"<<endl;
+
+    for(const auto& s : students)
+    {
+        cout<<s.id<<"\t";
+        cout<<left<<setw(24)<<s.name;
+        cout<<s.age<<"\t";
+
+        cout<<s.marks[0]<<"\t";
+        cout<<s.marks[1]<<"\t";
+        cout<<s.marks[2]<<"\t";
+
+        cout<<fixed<<setprecision(2)<<s.getAverage()<<"\t\t";
+        cout<<s.getGrade()<<endl;
+    }
+        cout << "========================================================================================================================================================" << endl;
+
+}
+
 int main()
 {
     cout<<"Student management system";
