@@ -130,6 +130,42 @@ void displayAllStudents()
 
 }
 
+void search_Student()
+{
+    if(students.empty())
+    {
+        cout<<"\nTo Students To Search."<<endl;
+        return;
+    }
+
+    int id;
+    cout<<"\nEnter Student ID To Search : ";
+    cin>>id;
+
+    bool fount = false;
+    for(const auto& s : students)
+    {
+        if( s.id == id)
+        {
+            cout<<"\n===== Student Found ====="<<endl;
+            cout<<"Id : "<<s.id<<endl;
+            cout<<"Name : "<<s.name<<endl;
+            cout<<"Age : "<<s.age<<endl;
+            cout<<"Marks for Subject 1 : "<<s.marks[0]<<endl;
+            cout<<"Marks for Subject 2 : "<<s.marks[1]<<endl;
+            cout<<"Marks for Subject 3 : "<<s.marks[2]<<endl;
+            cout<<"Average Marks : "<<fixed<<setprecision(2)<<s.getAverage()<<endl;
+            cout<<"Grade : "<<s.getGrade()<<endl;
+            fount = true;
+            break;
+        }
+    }
+    if(!found)
+    {
+        cout<<"\nStudent With Id "<<id<<" Not Found."<<endl;
+    }
+}
+
 int main()
 {
     cout<<"Student management system";
