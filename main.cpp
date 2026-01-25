@@ -94,7 +94,7 @@ void add_Student()
     cout<<"Enter Marks for Subject 3 :";
     cin>>s.marks[2];
 
-    student.push_back(s);
+    students.push_back(s);
     save_Students();
 
     cout<<"\nStudent Added Successfully !"<<endl;
