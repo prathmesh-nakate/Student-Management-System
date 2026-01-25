@@ -9,5 +9,6 @@ Manage Student Record Efficiently With The Lightweight Tools. All Student Data i
 - **View All Students** - Display complete student list with grades
 - **Auto-Grading** - Automatic Grading Calculation (A-F) Based on Average
 - **Add Student** - Register new students with auto-generated IDs 
+- **Update Student** - Modify existing student information              
 - **Search Student** - Find student details by ID          
 - **Auto-Save** - Data persists Between sessions
