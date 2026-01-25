@@ -166,6 +166,54 @@ void search_Student()
     }
 }
 
+void update_Student()
+{
+    if(students.empty())
+    {
+        cout<<"\nNo Student To Update."<<endl;
+        return;
+    }
+    int id;
+    cout<<"\nEnter Student Id To Update : "<<endl;
+    cin>>id;
+
+    bool found = false;
+    for(auto& s : students)
+    {
+        if (s.id == id)
+        {
+            cout<<"\nCurrent Details : "<<endl;
+            cout<<"Name : "<<s.name<<endl;
+            cout<<"Age : "<<s.age<<endl;
+
+            cout<<"\nEnter New Details : "<<endl;
+
+            cout<<"Enter Name : ";
+            cin.ignore();
+            getline(cin, s.name);
+            
+            cout<<"Enter Age : ";
+            cin>>s.age;
+
+            cout<<"Enter Marks For Subject 1 : ";
+            cin>>s.marks[0];
+            cout<<"Enter Marks For Subject 2 : ";
+            cin>>s.marks[1];
+            cout<<"Enter Marks For Subject  3 : ";
+            cin>>s.marks[2];
+
+            save_Students();
+            cout<<"\nStudent Updated Successfully ! "<<endl;
+            found = true;
+            break;
+        }
+    }
+    if(!found)
+    {
+        cout<<"\nStudent With ID "<<id<<"Not Found."<<endl;
+    }
+}
+
 int main()
 {
     cout<<"Student management system";
