@@ -12,3 +12,4 @@ Manage Student Record Efficiently With The Lightweight Tools. All Student Data i
 - **Update Student** - Modify existing student information              
 - **Search Student** - Find student details by ID          
 - **Auto-Save** - Data persists Between sessions
+- **Delete Student** - Remove student records with confirmation 
