@@ -214,6 +214,46 @@ void update_Student()
     }
 }
 
+void delete_Student()
+{
+    if(students.empty())
+    {
+        cout<<"\nNo tudent To Delete."<<endl;
+        return;
+    }
+    int id;
+    cout<<"\nEnter Student ID To Delete : ";
+    cin>>id;
+
+    bool found = false;
+    for(size_t i = 0; i < students.size(); i++)
+    {
+        if(students[i].id == id)
+        {
+            cout<<"Delete Student : "<<students[i].name<<"? (y/n) : ";
+            char confirm;
+            cin>>confirm;
+
+            if(confirm == 'y'  || confirm == 'Y')
+            {
+                students.erase(students.begin() + i);
+                save_Students();
+                cout<<"\nStudent Deleted successfuly !"<<endl;
+            }
+            else
+            {
+                cout<<"\nDeletion Cancelled."<<endl;
+            }
+            found = true;
+            break;
+        }
+    }
+    if(!found)
+    {
+        cout<<"\nStudent With Id "<<id<<" Not Found."<<endl;
+    }
+}
+
 int main()
 {
     cout<<"Student management system";
