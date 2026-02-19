@@ -256,6 +256,56 @@ void delete_Student()
 
 int main()
 {
-    cout<<"Student management system";
+    load_students();
+
+    cout<<"============================================================"<<endl;
+    cout<<"              Student management System                     "<<endl;
+    cout<<"============================================================"<<endl;
+
+    while(true)
+    {
+        cout<<"\n------ Menu ------"<<endl;
+        cout<<"1. Add Student"<<endl;
+        cout<<"2. Display All Students"<<endl;
+        cout<<"3. Search Student"<<endl;
+        cout<<"4. Update Student"<<endl;
+        cout<<"5, Delete Student"<<endl;
+        cout<<"6. Exit"<<endl;
+
+        cout<<<"\nEnter Your Choice : ";
+
+        int choice;
+        cin>>choice;
+
+        switch(choice)
+        {
+            case 1:
+                add_Student();
+                break;
+
+            case 2:
+                displayAllStudents();
+                break;
+
+            case 3:
+                search_Student();
+                break;
+
+            case 4:
+                update_Student();
+                break;
+
+            case 5:
+                delete_Student();
+                break;
+
+            case 6:
+                cout<<"Thanks For Using Student Management System. Goodbye!"<<endl;
+                return 0;
+
+            default:
+                cout<<"\nInvalid Choice. please Try Again."<<endl;
+        }
+    }
     return 0;
 }
