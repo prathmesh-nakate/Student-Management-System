@@ -142,7 +142,7 @@ void search_Student()
     cout<<"\nEnter Student ID To Search : ";
     cin>>id;
 
-    bool fount = false;
+    bool found = false;
     for(const auto& s : students)
     {
         if( s.id == id)
@@ -156,7 +156,7 @@ void search_Student()
             cout<<"Marks for Subject 3 : "<<s.marks[2]<<endl;
             cout<<"Average Marks : "<<fixed<<setprecision(2)<<s.getAverage()<<endl;
             cout<<"Grade : "<<s.getGrade()<<endl;
-            fount = true;
+            found = true;
             break;
         }
     }
@@ -256,7 +256,7 @@ void delete_Student()
 
 int main()
 {
-    load_students();
+    load_Students();
 
     cout<<"============================================================"<<endl;
     cout<<"              Student management System                     "<<endl;
@@ -272,7 +272,7 @@ int main()
         cout<<"5, Delete Student"<<endl;
         cout<<"6. Exit"<<endl;
 
-        cout<<<"\nEnter Your Choice : ";
+        cout<<"\nEnter Your Choice : ";
 
         int choice;
         cin>>choice;
