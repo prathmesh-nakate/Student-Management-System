@@ -13,16 +13,19 @@ struct Student
     int age;
     float marks[3];    // Marks For 3 Subjects
     
-    float getAverage()
+    float getPercentage() 
     const
-    {
-        return (marks[0] + marks[1] + marks[2]) / 3.0;
+    { 
+
+        float totalMarks = marks[0] + marks[1] + marks[2];
+
+        return (totalMarks / 300.0) * 100.0;  // Out of 300 total marks
     }
 
     char getGrade()
     const
     {
-        float avg = getAverage();
+        float avg = getPercentage();
 
         if(avg >= 90) return 'A';
         else if(avg >= 80) return 'B';
@@ -98,7 +101,7 @@ void add_Student()
     save_Students();
 
     cout<<"\nStudent Added Successfully !"<<endl;
-    cout<<"Average Marks : " << fixed << setprecision(2) << s.getAverage() << endl;
+    cout<<"Percentage : " << fixed << setprecision(2) << s.getPercentage() << endl;
     cout<<"Grade : " << s.getGrade() << endl;
 }
 
@@ -123,7 +126,7 @@ void displayAllStudents()
         cout<<s.marks[1]<<"\t";
         cout<<s.marks[2]<<"\t";
 
-        cout<<fixed<<setprecision(2)<<s.getAverage()<<"\t\t";
+        cout<<fixed<<setprecision(2)<<s.getPercentage()<<"\t\t";
         cout<<s.getGrade()<<endl;
     }
         cout << "========================================================================================================================================================" << endl;
@@ -154,7 +157,7 @@ void search_Student()
             cout<<"Marks for Subject 1 : "<<s.marks[0]<<endl;
             cout<<"Marks for Subject 2 : "<<s.marks[1]<<endl;
             cout<<"Marks for Subject 3 : "<<s.marks[2]<<endl;
-            cout<<"Average Marks : "<<fixed<<setprecision(2)<<s.getAverage()<<endl;
+            cout<<"Percentage : "<<fixed<<setprecision(2)<<s.getPercentage()<<endl;
             cout<<"Grade : "<<s.getGrade()<<endl;
             found = true;
             break;
@@ -269,7 +272,7 @@ int main()
         cout<<"2. Display All Students"<<endl;
         cout<<"3. Search Student"<<endl;
         cout<<"4. Update Student"<<endl;
-        cout<<"5, Delete Student"<<endl;
+        cout<<"5. Delete Student"<<endl;
         cout<<"6. Exit"<<endl;
 
         cout<<"\nEnter Your Choice : ";
