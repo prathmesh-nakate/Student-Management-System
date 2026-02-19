@@ -114,30 +114,48 @@ void displayAllStudents()
 {
     if(students.empty())
     {
-        cout<<"\nNo Students in the System Yet! Proceed To Add Student."<<endl;
+        cout<<"\nNo Students in the System Yet."<<endl;
         return;
     }
-    cout<<"\n ===================================================== All Students ====================================================="<<endl;
-    cout<<"Id\tName\t\t\t\t\tAge\t\tSub 1\t\tSub 2\t\tSub 3\t\tPercentage\t\tGrade"<<endl;
-    cout<<"\n ========================================================================================================================"<<endl;
+    
+    cout<<"\n==============================================================================="<<endl;
+    cout<<"                            All Students                                       "<<endl;
+    cout<<"==============================================================================="<<endl;
+    cout<<left<<setw(6)<<"ID"
+        <<setw(24)<<"Name"
+        <<setw(6)<<"Age"
+        <<setw(8)<<"Sub1"
+        <<setw(8)<<"Sub2"
+        <<setw(8)<<"Sub3"
+        <<setw(10)<<"Percent"
+        <<"Grade"<<endl;
+    cout<<"==============================================================================="<<endl;
 
     for(const auto& s : students)
     {
-        cout<<s.id<<"\t";
-        cout<<left<<setw(24)<<s.name;
-        cout<<s.age<<"\t";
-
-        cout<<s.marks[0]<<"\t";
-        cout<<s.marks[1]<<"\t";
-        cout<<s.marks[2]<<"\t";
-
-        cout<<fixed<<setprecision(2)<<s.getPercentage()<<"\t\t";
+        cout<<left<<setw(6)<<s.id
+            <<setw(24)<<s.name
+            <<setw(6)<<s.age
+            <<setw(8)<<(int)s.marks[0]
+            <<setw(8)<<(int)s.marks[1]
+            <<setw(8)<<(int)s.marks[2];
+        
+        // Percentage with % inside the column
+        cout<<fixed<<setprecision(2)<<s.getPercentage()<<" %";
+        
+        // Add spacing before grade
+        if(s.getPercentage() < 10)
+            cout<<"      ";  // 6 spaces
+        else if(s.getPercentage() < 100)
+            cout<<"     ";   // 5 spaces
+        else
+            cout<<"    ";    // 4 spaces
+        
+        // Grade
         cout<<s.getGrade()<<endl;
     }
-        cout << "======================================================================================================================" << endl;
-
+    cout<<"==============================================================================="<<endl;
 }
-
 void search_Student()
 {
     if(students.empty())
