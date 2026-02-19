@@ -158,11 +158,11 @@ void search_Student()
             cout<<"\n===== Student Found ====="<<endl;
             cout<<"Id : "<<s.id<<endl;
             cout<<"Name : "<<s.name<<endl;
-            cout<<"Age : "<<s.age<<endl;
+            cout<<"Age : "<<s.age<<endl<<endl;
             cout<<"Marks for Subject 1 : "<<s.marks[0]<<endl;
             cout<<"Marks for Subject 2 : "<<s.marks[1]<<endl;
             cout<<"Marks for Subject 3 : "<<s.marks[2]<<endl;
-            cout<<"Percentage : "<<fixed<<setprecision(2)<<s.getPercentage()<<endl;
+            cout<<endl<<"Percentage : "<<fixed<<setprecision(2)<<s.getPercentage()<<endl;
             cout<<"Grade : "<<s.getGrade()<<endl;
             found = true;
             break;
@@ -182,7 +182,7 @@ void update_Student()
         return;
     }
     int id;
-    cout<<"\nEnter Student Id To Update : "<<endl;
+    cout<<"\nEnter Student Id To Update : ";
     cin>>id;
 
     bool found = false;
