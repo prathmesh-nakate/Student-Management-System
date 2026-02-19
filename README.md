@@ -13,3 +13,16 @@ Manage Student Record Efficiently With The Lightweight Tools. All Student Data i
 - **Search Student** - Find student details by ID          
 - **Auto-Save** - Data persists Between sessions
 - **Delete Student** - Remove student records with confirmation 
+
+## Installation
+```bash
+# Clone the repository
+git clone https://github.com/prathmesh-nakate/student-management-system
+cd student-management-system
+
+# Compile
+g++ main.cpp -o student_mgmt
+
+# Run
+./student_mgmt        # Linux/Mac
+student_mgmt.exe      # Windows
