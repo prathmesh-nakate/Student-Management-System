@@ -36,7 +36,6 @@ struct Student
 };
 
 vector <Student> students;
-int nextId = 1;
 
 void load_Students()
 {
@@ -44,7 +43,6 @@ void load_Students()
     if(!file.is_open()) 
     return;
 
-    int maxId = 0;
     Student s;
 
     while(file >> s.id)
@@ -55,10 +53,8 @@ void load_Students()
         file >> s.marks[0] >> s.marks[1] >> s.marks[2];
 
         students.push_back(s);
-        if(s.id > maxId)
-        maxId = s.id;
+       
     }
-    nextId = maxId + 1;
     file.close();
 }
 
@@ -78,10 +74,19 @@ void save_Students()
 void add_Student()
 {
     Student s;
-    s.id = nextId++;
 
     cout<<"\n==== Add New Student ===="<<endl;
-    cout<<"Student Id : "<<s.id<<"(Auto-generated)"<<endl;
+    cout<<"Enter Student Id : ";
+    cin>>s.id;
+
+    for(const auto& student : students)
+    {
+        if(student.id == s.id)
+        {
+            cout<<"Error! Student ID Already Exists!"<<endl;
+            return;
+        }
+    }
 
     cout<<"Enter name : ";
     cin.ignore();
@@ -109,11 +114,11 @@ void displayAllStudents()
 {
     if(students.empty())
     {
-        cout<<"\nNo Students in the System Yet."<<endl;
+        cout<<"\nNo Students in the System Yet! Proceed To Add Student."<<endl;
         return;
     }
     cout<<"\n ======================================================================= All Students ======================================================================="<<endl;
-    cout<<"Id\tName\t\tAge\tSub 1\tSub 2\tSub 3\tAverage\tGrade"<<endl;
+    cout<<"Id\tName\t\tAge\tSub 1\tSub 2\tSub 3\tPercentage\tGrade"<<endl;
     cout<<"\n ============================================================================================================================================================"<<endl;
 
     for(const auto& s : students)
